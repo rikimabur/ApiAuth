@@ -1,0 +1,8 @@
+
+1.Look for credentials in the request
+2.If there are no credentials, do nothing and result (no-op)
+3.If there are credentials but the filter does not recognize the authentication scheme, do nothing and return (no-op).
+ Another filter in the pipeline might understand the scheme
+4.If there are credentials that the filter understands, try to authenticate them
+5.If there credentials are bad, return 401 by setting context.ErrorResult
+6.If the credentials are valid, create an IPrincipal and set context.Principal
